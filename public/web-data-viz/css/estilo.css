@@ -4,26 +4,31 @@ body {
   margin: 0;
   padding: 0;
   font-family: 'Barlow', 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: black;
+  background-color: var(--fundo-claro);
 }
 
 :root {
   --tamanho-header: 80px;
   --tamanho-banner: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
-  --tamanho-simulador: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
+  --tamanho-conteudos: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-login: calc(100vh - var(--tamanho-header) - var(--tamanho-footer) - 2px);
   --tamanho-footer: 65px;
+  --detalhes-cor: #ff43bd;
+  --fundo-medio: #ffb4e5;
+  --fundo-claro: #ffd7f1;
 }
 
 .container {
   display: flex;
-  width: 80%;
-  margin: auto;
+  width: 80%; 
+  /*Ele (%) é relativo ao conteiner-pai*/
+  margin: auto; 
+  /*Fala para centralizar a div lateralmente*/
 }
 
 .header {
   height: var(--tamanho-header);
-  border-bottom: 2px solid #32b9cd;
+  /* border-bottom: 2px solid #32b9cd; */
 }
 
 .header .container {
@@ -32,28 +37,37 @@ body {
   height: 100%;
 }
 
+.header .sem_logo{
+  justify-content: end;
+}
+
 .header a {
   text-decoration: none;
-  color: #e3b062;
+  color: var(--detalhes-cor);
 }
 
 .agora {
   font-weight: 800;
 }
-
+.navbar li {
+  padding: 5px 20px;
+  margin: 0px 7px;
+  border: 0.5px solid var(--detalhes-cor);
+}
 .navbar {
   width: 300px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   list-style: none;
-  color: #e3b062;
+  font-weight: 600; /*coloquei aq para não sobrepor o agora*/
 }
 
-.titulo {
-  color: #32b9cd;
-  width: fit-content;
-  font-weight: 500;
+.logo {
+  /*Se no index não tiver logo tem que 
+  ajustar a posição da navbar*/
+  width: 70px;  /*fit-content; é para ocupar todo o espaço
+         e pode ter () para vc definir o maximo dele*/
 }
 
 .header h1 {
@@ -64,32 +78,60 @@ body {
 
 .banner {
   height: var(--tamanho-banner);
-  color: white;
-  background-image: url('../assets/imgs/bg-jelly-fish-para-home.png');
-  background-size: cover;
+  background: var(--fundo-medio);
+  /* background-image: url('../assets/imgs/bg-jelly-fish-para-home.png'); */
+  /* background-size: cover; */
 }
 
 .banner .container {
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
   height: 100%;
 }
 
-.banner .container p {
-  width: 50%;
-  margin: 0;
-  padding: 0;
-  font-size: 36px;
+.banner .container img {
+  /* min-width: 220px;
+  max-width: 600px; */
+  height: 80%;
+  margin: 2px;
+  /* padding: 0; */
+  /* font-size: 36px; */
 }
 
-.banner .container span {
-  font-weight: 800;
+    /* .banner .container span {
+      font-weight: 800;
+    } */
+
+/* APRESENTAÇÃO */
+
+.apresentacao{
+  display: flex;
+  margin: 50px 0px;
+}
+.apresentacao .container{
+  justify-content: space-between;
+  align-items: center;
+}
+
+.apresentacao .container .texto{
+  background: var(--fundo-medio);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 25px;
+  width: 500px;
+  padding: 20px;
+}
+.apresentacao .container img {
+  border-radius: 25px;
+  max-height: 400px;
 }
 
 /* MISSÃO VISÃO VALORES */
 
 .social {
-  background-color: #e5e5e5;
+  /* background-color: #e5e5e5; */
   display: flex;
 }
 
@@ -97,15 +139,11 @@ body {
   justify-content: center;
 }
 
-.box img {
-  width: 170px;
-}
-
 .social .container .boxes {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  padding: 30px 0;
+  padding: 30px 20px;
 }
 
 .social p {
@@ -116,20 +154,39 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
+  margin: 0px 15px;
 }
 
+.box img {
+  width: 300px;
+  border-radius: 15px;
+}
+.box .texto {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  border-radius: 15px;
+  background: var(--fundo-medio);
+  margin: 5px 15px;
+  width: 20%; /*não sei se funciona*/
+  min-width: 350px;
+  max-width: 500px;
+}
 /* FOOTER */
 
 .footer {
-  background-color: #32b9cd;
-  height: 150px;
+  background-color: var(--fundo-medio);
+  width: 100%;
   color: #fff;
   display: flex;
   font-size: 15px;
+  margin: auto;
 }
 
 .footer .container {
-  justify-content: center;
+  flex-direction: column;
+  align-items: center;
   text-align: center;
 }
 
@@ -302,16 +359,16 @@ input {
   width: 50px;
 }
 
-/* SIMULADOR */
+/* CONTEUDOS */
 
-.simulador {
+.conteudos {
   color: white;
 }
 
-.simulador .container {
+.conteudos .container {
   flex-direction: column;
   overflow: scroll; 
-  height: var(--tamanho-simulador);
+  height: var(--tamanho-conteudos);
 }
 
 /* ALERTA */
