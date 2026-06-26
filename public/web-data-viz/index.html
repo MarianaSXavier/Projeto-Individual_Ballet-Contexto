@@ -24,7 +24,7 @@
           <a href="#">Inicio</a>
         </li>
         <li>
-          <a href="conteudo.html">Conteúdos</a>
+          <a href="conteudo-inicial.html">Conteúdos</a>
         </li>
         <li id="logado">
           <a href="login.html">Login</a>
@@ -48,7 +48,7 @@
     <div class="container">
       <img src="./assets/imgs/Foto-ballet-mari.png" alt="">
       <div class="texto">
-        <h3>Olá! Sejam bem-vindos ao Ballet&Contexto! </h3>
+        <h3>Olá! Sejam bem-vindos ao Ballet &Contexto! </h3>
         <p>
           Meu nome é Mariana e eu gosto de ballet desde que me
           conheço por gente. Não sou uma bailarina profissional e atualmente faço faculdade de ciência da
@@ -63,7 +63,7 @@
           sobre ballet, testes de conhecimento e uma forma de a companhar o seu desenvolvimento, 
           nossa Dashboard.</p>
           <p>Cadastre-se e aproveite de todos os nossos conteúdos!!</p>
-          <button id="cadast">Cadastre-se</button>
+          <button onclick="cadast()" class="botao">Cadastre-se</button>
       </div>
        <!-- Mesmo que eu não esteja dançando no
           momento, paro sempre que vejo um vídeo a respeito, seja ele uma análise de performance profissional
@@ -90,6 +90,7 @@
             </p>
           </div>
           <img src="https://th.bing.com/th/id/OIP.JxjXytjMaRyrjn2NK7oK0QHaEw?w=288&h=185&c=7&r=0&o=7&pid=1.7&rm=3">
+        <button onclick="conteudo()" class="botao">Acessar conteudos</button>
         </div>
         <div class="box">
           <img src="https://theartsdesk.com/sites/default/files/mastimages/Coppelia.%20Francesca%20Hayward%20as%20Swanilda%20and%20Gary%20Avis%20as%20Dr%20Coppelius.%20(c)%20ROH%2C%202019.%20Photographed%20by%20Bill%20Cooper.%20(3).jpg">
@@ -102,10 +103,9 @@
       </div>
     </div>
   </div>
-
   <div class="footer">
     <div class="container">
-      <h4>Feito com amor por aluno &hearts; SPTech &copy; 2023-2026</h4>
+      <h4>Feito com &hearts; por uma  aluna SPTech &copy; 2026</h4>
         <h4>Tem uma sugestão ou comentario? </h5>
         <h4>Envie um e-mail para: mariana.xavier@sptech.school</h5>
     </div>
@@ -114,6 +114,11 @@
 </html>
 <script>
    if (sessionStorage.ID_USUARIO != undefined) {
-    logado.innerHTML = '<a href="dashboard/dash.html">Dashboard</a>';
+    logado.innerHTML = '<a href="dashboard/dashoard.html">Dashboard</a>';
+   };
+   function cadast() {
+    setTimeout( () => {
+      window.location = "./cadastro.html";
+   }, 500)
    };
 </script>
