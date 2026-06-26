@@ -136,6 +136,10 @@ body {
 
 /* MISSÃO VISÃO VALORES */
 
+#titulo {
+  color: var(--detalhes-cor);
+}
+
 .social {
   /* background-color: #e5e5e5; */
   display: flex;
